@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  a2a-server:
+    build: .
+    ports:
+      - "10002:10002"
+    volumes:
+      - ./src:/app/my-project/src
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+
+  ollama:
+    image: ollama/ollama
+    ports:
+      - "11434:11434"
